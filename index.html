@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+
+<META HTTP-EQUIV="Content-type" content="text/html;charset=UTF-8">
+<title>圣诞点击 - Merry Clickmas</title>
+<meta name="description" content="Santa needs your help!  Make presents for everyone in the world and save Christmas.">
+<meta name="author" content="Geoffrey White">
+
+<!--
+	Merry Clickmas 1.0.4
+	code, content and graphics Copyright (C) 2013 Geoffrey White
+-->
+
+<LINK REL="stylesheet" type="text/css" href="style_r4.css">
+				
+<script src="main_r4.js"></script>
+
+</head><body onload="init()">
+	<div id="div_left">
+	</div>
+	<div id="div_header">
+		<br><br>This page requires javascript.
+	</div>
+	<div id="div_resources">
+		<div class="resource_space">
+			<div class="button green_button" onmouseup="toy_click()">
+				<div class="button_title">Make toy</div>
+				<div class="button_text" id="toy_button_text"></div>
+			</div>
+			<div class="resource_big" id="toy_count"></div>
+			<div class="resource_small" id="toys_sec_count"></div>
+		</div>
+		<div class="resource_space">
+			<div class="button red_button" onmouseup="present_click()">
+				<div class="button_title">Wrap present</div>
+				<div class="button_text" id="present_button_text"></div>
+			</div>
+			<div class="resource_big" id="present_count"></div>
+			<div class="resource_small" id="presents_sec_count"></div>
+		</div>
+	</div>
+	<div id="div_elves">
+		<div class="resource_space">
+			<div class="button green_button" id="makers_button" onmouseup="maker_click()">
+				<div class="button_title" id="makers_button_title"></div>
+				<div class="button_text" id="makers_button_text"></div>
+			</div>
+			<div class="arrow_container">
+				<img src="arrows_r1.png" alt="" width=24 height=42>
+			</div>
+		</div>
+		<div class="resource_space">
+			<div class="button red_button" id="wrappers_button" onmouseup="wrapper_click()">
+				<div class="button_title" id="wrappers_button_title"></div>
+				<div class="button_text" id="wrappers_button_text"></div>
+			</div>
+		</div>
+	</div>
+	<div id="div_machines">
+		<div class="resource_space">
+			<div class="v_margin">
+			</div>
+		</div>
+		<div class="resource_space">
+			<div class="button grey_button">
+				<div class="button_title" id="machines_button_title"></div>
+				<div class="button_text" id="machines_button_text"></div>
+			</div>
+		</div>
+	</div>
+	<div id="div_tabs">
+		<div class="box box_upgrade" id="tab_upgrades" onmouseup="{show_tab('tab_upgrades', 'cont_upgrades')}">
+			<div class="box_title">Upgrade</div>
+		</div>
+		<div class="box box_upgrade" id="tab_reindeer" onmouseup="{show_tab('tab_reindeer', 'cont_reindeer')}">
+			<div class="box_title">Reindeer</div>
+		</div>
+		<div class="box box_upgrade" id="tab_tree" onmouseup="{show_tab('tab_tree', 'cont_tree')}">
+			<div class="box_title">Christmas Tree</div>
+		</div>
+		<div class="box box_upgrade" id="tab_save" onmouseup="{show_tab('tab_save', 'cont_save')}">
+			<div class="box_title">Save</div>
+		</div>
+		<div class="box box_upgrade" id="tab_achievements" onmouseup="{show_tab('tab_achievements', 'cont_achievements')}">
+			<div class="box_title">Achievements</div>
+		</div>
+		<div id="div_tab">
+			<div class="no_display" id="cont_upgrades">
+				<div id="all_upgrades"></div>
+			</div>
+			<div class="no_display" id="cont_reindeer">
+				<div class="box">
+					The reindeer would like you to decorate their stable.  In return they will speed up time with Christmas magic.<br>
+					<br>
+
+					<form onsubmit="return input_reindeer()" autocomplete="false">
+						<div class="b_margin">What decoration do you put up?</div>
+						<input type="text" id="input_decoration"/>
+					</form>
+					<br>
+
+					<div class="box_title pink_writing" id="decoration_message">
+						<br>
+					</div>
+					<br>
+
+					<div class="box_title">Current speed: <span id="time_speed_display"></span>%</div>
+					<br>
+	
+					Decorations (each decoration adds +<span id="time_add_display"></span>% speed):
+					<div class="box_list" id="list_decorations"></div>
+					<br>
+				</div>
+			</div>
+			<div class="no_display" id="cont_tree">
+				<div class="box" id="wishtext">
+				</div>
+				<div class="box box_upgrade" class="no_display" id="wish1" onmouseup="{gain_wish(wish1, wish1_param)}">
+					<div class="box_title b_margin_4" id="wish1_title"></div>
+					<div id="wish1_text"></div>
+				</div>
+				<div class="box box_upgrade" class="no_display" id="wish2" onmouseup="{gain_wish(wish2, wish2_param)}">
+					<div class="box_title b_margin_4" id="wish2_title"></div>
+					<div id="wish2_text"></div>
+				</div>
+			</div>
+			<div class="no_display" id="cont_achievements">
+				<div class="box">
+					Santa needs your help.  Create 7.1 billion presents in time for Christmas!<br>
+					<br>
+
+					<div class="box_list">
+						Actual play time: <span id="play_time"></span><br>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">Productivity</div>
+					<div class="box_list">
+						Toy multiplier: x<span id="toys_mult"></span><br>
+						Wrapping multiplier: x<span id="wrap_mult"></span><br>
+						<span id="songs_mult"></span>
+						<span id="outsource_mult"></span>
+						<span id="machine_mult"></span>
+						<span id="mirror_mult"></span>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">Statistics</div>
+					<div class="box_list">
+						Total toys made by clicking: <span id="toys_clicked_count"></span><br>
+						<span id="toys_elves_count"></span>
+						<span id="toys_outsource_count"></span>
+						Total presents wrapped by clicking: <span id="presents_clicked_count"></span><br>
+						<span id="presents_elves_count"></span>
+						<span id="presents_machined_count"></span>
+						<span id="presents_mirrored_count"></span>
+						<span id="songs_count"></span>
+						<span id="wishes_count"></span>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">Upgrades (<span id="num_upgrades"></span>)</div>
+					<div class="box_list" id="list_upgrades"></div>
+					<br>
+				</div>
+			</div>
+			<div class="no_display" id="cont_save">
+				<div class="box">
+					Last saved: <span id="save_time">never</span><br>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="save_to_cookie_manual()">Save now</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="save_to_code()">Export save code</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="load_from_code()">Load from code</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="reset_game_confirm()">Reset game</div>
+					<br>
+					Please note that the game is automatically saved to a browser cookie at regular intervals.  However cookies aren't guaranteed to persist, to be safe please record a save code between sessions.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="div_footer">
+		Merry Clickmas 1.0.4 &mdash; Copyright &copy; 2013 Geoffrey White |
+		<a href="http://www.digitalchestnut.com/" target="_blank">Digital Chestnut</a> |
+		<a href="https://twitter.com/GeoffW0" target="_blank">@GeoffW0</a> |
+		<a href="https://www.facebook.com/DigitalChestnut" target="_blank">Facebook</a> |
+		art by <a href="http://randomstuff.org.uk/~laura/" target="_blank">Laura Dawes</a>
+	</div>
+	<div id="div_win">
+		<div class="win_stripe">
+			<div class="red_writing_3">Congratulations</div>
+			<br>
+			You've made 7.1 billion presents and saved Christmas.<br>
+			<br>
+			<div class="red_writing_4">Merry Clickmas!</div>
+			<br>
+			<div class="box box_upgrade box_upgrade_win" onclick="dismiss_win()">OK</div>
+		</div>
+	</div>
+	<!--客服 开始-->
+<script src="//likexia.gitee.io/game/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//likexia.gitee.io/game/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//likexia.gitee.io/game/js/kf.js"></script>
+<!-- 客服 结束 -->
+</body></html>
