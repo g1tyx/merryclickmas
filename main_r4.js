@@ -369,13 +369,13 @@ function tick_resources()
 	}
 	if (!saved_since_load)
 	{
-		document.getElementById("save_time").innerHTML = "never";
+		document.getElementById("save_time").innerHTML = "无";
 	} else if (save_seconds == 0) {
-		document.getElementById("save_time").innerHTML = "just now";
+		document.getElementById("save_time").innerHTML = "刚刚";
 	} else if (save_seconds == 1) {
-		document.getElementById("save_time").innerHTML = "a second ago";
+		document.getElementById("save_time").innerHTML = "几秒前";
 	} else {
-		document.getElementById("save_time").innerHTML = save_seconds + " seconds ago";
+		document.getElementById("save_time").innerHTML = save_seconds + " 秒前";
 	}
 
 	// wait
@@ -541,8 +541,8 @@ var upgrades =
 {
 	morale1:
 	{
-		title:"Christmas sing-song",
-		text:'Your elves are <span id="songs_mult_upg">twice</span> as productive for the next 3 minutes.',
+		title:"圣诞节歌咏",
+		text:'你的精灵提高工作效率，制作 <span id="songs_mult_upg">两次</span> 在接下来的3分钟',
 		icon:"note_r1.png",
 		vis:function() {return (upgrades.elf.num >= 5)},
 		cost:100,
@@ -556,8 +556,8 @@ var upgrades =
 	},
 	outsource1:
 	{
-		title:"Outsource delivery",
-		text:'You receive a delivery of <span id="outsource_in">1,000,000</span> toys in 10 minutes time.',
+		title:"外包交付",
+		text:'你收到交付 <span id="outsource_in">1,000,000</span> 玩具在10分钟的时间。',
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 40)},
 		cost:100000,
@@ -566,8 +566,8 @@ var upgrades =
 	},
 	machine0:
 	{
-		title:"Machine maintenance",
-		text:"Fix a paper jam in one of the wrapping machines.",
+		title:"机器保养",
+		text:"修复一个卡纸包装的机器。",
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.machine0.max >= 1)},
 		cost:123456,
@@ -579,7 +579,7 @@ var upgrades =
 	toys1:
 	{
 		title:"重活",
-		text:"Increase your toy making to 2 toys/click.",
+		text:"增加你的玩具制造，2玩具/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (presents_clicked >= 10)},
 		cost:10,
@@ -587,8 +587,8 @@ var upgrades =
 	},
 	presents1:
 	{
-		title:"Tape dispenser",
-		text:"Speed your wrapping up to 3 presents/click.",
+		title:"胶带座",
+		text:"加速你的包装3礼物/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys1.num >= 1)},
 		cost:10,
@@ -596,8 +596,8 @@ var upgrades =
 	},
 	toys2:
 	{
-		title:"Two-handed chisel",
-		text:"Increase your toy making to 5 toys/click.",
+		title:"双手凿",
+		text:"增加你的玩具制造，5玩具/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents1.num >= 1)},
 		cost:50,
@@ -1114,7 +1114,7 @@ function update_morale_upgrade()
 	// update statistics
 	if (upgrades.morale1.ever >= 1)
 	{
-		document.getElementById("songs_mult").innerHTML = "Song multiplier: x" + thousands(elf_morale_mult) + "<br>";
+		document.getElementById("songs_mult").innerHTML = "赞歌加成倍数: x" + thousands(elf_morale_mult) + "<br>";
 	} else {
 		document.getElementById("songs_mult").innerHTML = "";
 	}
@@ -1125,7 +1125,7 @@ function update_machines_upgrade()
 	document.getElementById("machine_mult_upg").innerHTML = thousands(machine_mult);
 	if (upgrades.machine1.ever >= 1)
 	{
-		document.getElementById("machine_mult").innerHTML = "Machines multiplier: x" + (machine_mult / 1000) + "<br>";
+		document.getElementById("machine_mult").innerHTML = "机器加成倍数: x" + (machine_mult / 1000) + "<br>";
 	} else {
 		document.getElementById("machine_mult").innerHTML = "";
 	}
@@ -1135,7 +1135,7 @@ function update_mirrors_upgrade()
 {
 	if (mirror_mult >= 2)
 	{
-		document.getElementById("mirror_mult").innerHTML = "Mirror multiplier: x" + mirror_mult + "<br>";
+		document.getElementById("mirror_mult").innerHTML = "镜子加成倍数: x" + mirror_mult + "<br>";
 	} else {
 		document.getElementById("mirror_mult").innerHTML = "";
 	}
@@ -1497,15 +1497,15 @@ function input_reindeer()
 		if (!decorations[match].have)
 		{
 			decorations[match].have = true;
-			document.getElementById("decoration_message").innerHTML = "Great idea - added " + decorations[match].name + ".";
+			document.getElementById("decoration_message").innerHTML = "好主意——添加 " + decorations[match].name + ".";
 
 			update_reindeer();
 			save_flag = true;
 		} else {
-			document.getElementById("decoration_message").innerHTML = "We already have " + decorations[match].name + ".";
+			document.getElementById("decoration_message").innerHTML = "我们已经有了 " + decorations[match].name + ".";
 		}
 	} else if (input.length > 2) {
-		document.getElementById("decoration_message").innerHTML = "I don't know what you mean by that.";
+		document.getElementById("decoration_message").innerHTML = "我不明白你的意思。";
 	} else {
 		document.getElementById("decoration_message").innerHTML = "<br>";
 	}
@@ -1557,7 +1557,7 @@ function update_outsource_upgrade()
 
 	if (upgrades.outsource1.ever >= 1)
 	{
-		document.getElementById("outsource_mult").innerHTML = "Delivery multiplier: x" + thousands(outsource_mult) + "<br>";
+		document.getElementById("outsource_mult").innerHTML = "交付加成倍数: x" + thousands(outsource_mult) + "<br>";
 	} else {
 		document.getElementById("outsource_mult").innerHTML = "";
 	}
@@ -1570,25 +1570,25 @@ var wishes =
 	{
 		name:"Faster toy making!",
 		get_param:function() {return Math.floor(Math.random() * 10) + 1},
-		get_text:function(param) {return "Increases your toy making multiplier by +" + param + "."},
+		get_text:function(param) {return "提高你的玩具制作加成倍数 +" + param + "."},
 		carry_out:function(param) {toys_mult += param}
 	},
 	{
 		name:"Faster wrapping!",
 		get_param:function() {return Math.floor(Math.random() * 10) + 1},
-		get_text:function(param) {return "Increases your present wrapping multiplier by +" + param + "."},
+		get_text:function(param) {return "提高你的礼物包装加成倍数 +" + param + "."},
 		carry_out:function(param) {presents_mult += param}
 	},
 	{
 		name:"Bigger deliveries!",
 		get_param:function() {return Math.floor(Math.random() * 6) + 1},
-		get_text:function(param) {return "Your deliveries produce an additional " + thousands(param * 1000000) + " toys."},
+		get_text:function(param) {return "你的交付产生了额外 " + thousands(param * 1000000) + " 玩具."},
 		carry_out:function(param) {outsource_mult += param; update_outsource_upgrade()}
 	},
 	{
 		name:"Another wish!",
 		get_param:function() {return 0},
-		get_text:function(param) {return "You immediately get another wish."},
+		get_text:function(param) {return "你立即得到另一个愿望。"},
 		carry_out:function(param) {set_wish()}
 	}
 ]
@@ -1641,7 +1641,7 @@ function update_wish()
 	if (wish_set)
 	{
 		// show wishes
-		document.getElementById("wishtext").innerHTML = "The tree is full of Christmas magic and ready to grant you one wish.  What do you choose?";
+		document.getElementById("wishtext").innerHTML = "树上充满了圣诞魔法，准备给你一个愿望。 你选择什么？";
 		document.getElementById("wish1").style.display = "block";
 		document.getElementById("wish1_title").innerHTML = wishes[wish1].name;
 		document.getElementById("wish1_text").innerHTML = wishes[wish1].get_text(wish1_param * wish_mult);
@@ -1657,7 +1657,7 @@ function update_wish()
 		{
 			ext = "";
 		}
-		str = "Your next Christmas wish will be ready in <b>" + mins + "</b> minute" + ext + "...";
+		str = "你的下一个圣诞愿望将准备就绪在 <b>" + mins + "</b> 分钟" + ext + "...";
 		document.getElementById("wishtext").innerHTML = str;
 		document.getElementById("wish1").style.display = "none";
 		document.getElementById("wish2").style.display = "none";
