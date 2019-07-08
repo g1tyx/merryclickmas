@@ -64,28 +64,28 @@ function update_resources()
 	}
 	if (win_stage > 0)
 	{
-		str = '<span style="color:#FFFF00">*** Congratulations, you' + "'" + 've saved Christmas! ***</span>';
+		str = '<span style="color:#FFFF00">*** 恭喜，你拯救了圣诞节! ***</span>';
 	} else if (upgrades.toys1.num >= 1) {
-		str = "Make presents for everyone in the world and save Christmas!";
+		str = "为世界上的每个人制作礼物并保存圣诞节！";
 	} else if (presents_clicked >= 10) {
-		str = "Purchase upgrades so that you can progress faster.";
+		str = "购买升级，以便您可以更快地提升进度。";
 	} else if ((toys_clicked >= 10) && (presents_clicked >= 1)) {
-		str = "Keep wrapping!";
+		str = "保持包装！";
 	} else if (toys_clicked >= 10) {
-		str = "Now click on 'wrap present'.";
+		str = "现在点击“包装礼物”。";
 	} else if (toys_clicked >= 1) {
-		str = "That's great - make some more toys!";
+		str = "这太好了 - 再制作一些玩具！";
 	} else {
-		str = "Click on 'make toy' to make a toy.";
+		str = "点击“制作玩具”制作玩具。";
 	}
 	document.getElementById("div_header").innerHTML = str;
 
 	// toys
 	if (toys > 1)
 	{
-		str = thousands(toys) + " toys";
+		str = thousands(toys) + " 玩具";
 	} else if (toys == 1) {
-		str = "1 toy";
+		str = "1 玩具";
 	} else {
 		str = "<br>";
 	}
@@ -94,9 +94,9 @@ function update_resources()
 	// presents
 	if (presents > 1)
 	{
-		str = thousands(presents) + " presents";
+		str = thousands(presents) + " 礼物";
 	} else if (presents == 1) {
-		str = "1 present";
+		str = "1 礼物";
 	} else {
 		str = "<br>";
 	}
@@ -118,7 +118,7 @@ function update_resources()
 	if (toys_elves > 0)
 	{
 		document.getElementById("toys_elves_count").innerHTML =
-			"Total toys made by elves: " + thousands(toys_elves) + " (" +
+			"精灵制造的玩具总数: " + thousands(toys_elves) + " (" +
 			Math.round(toys_elves * 100 / num) + "%)<br>";
 	} else {
 		document.getElementById("toys_elves_count").innerHTML = "";
@@ -126,7 +126,7 @@ function update_resources()
 	if (toys_outsourced > 0)
 	{
 		document.getElementById("toys_outsource_count").innerHTML =
-			"Total toys arrived by delivery: " + thousands(toys_outsourced) + " (" +
+			"总玩具交货抵达: " + thousands(toys_outsourced) + " (" +
 			Math.round(toys_outsourced * 100 / num) + "%)<br>";
 	} else {
 		document.getElementById("toys_outsource_count").innerHTML = "";
@@ -138,7 +138,7 @@ function update_resources()
 	if (presents_elves > 0)
 	{
 		document.getElementById("presents_elves_count").innerHTML =
-			"Total presents wrapped by elves: " + thousands(presents_elves) + " (" +
+			"由精灵包装的总礼物数量: " + thousands(presents_elves) + " (" +
 			Math.round(presents_elves * 100 / num) + "%)<br>";
 	} else {
 		document.getElementById("presents_elves_count").innerHTML = "";
@@ -146,7 +146,7 @@ function update_resources()
 	if (presents_machined > 0)
 	{
 		document.getElementById("presents_machined_count").innerHTML =
-			"Total presents wrapped by machines: " + thousands(presents_machined) + " (" +
+			"由机器包装的礼物总数: " + thousands(presents_machined) + " (" +
 			Math.round(presents_machined * 100 / num) + "%)<br>";
 	} else {
 		document.getElementById("presents_machined_count").innerHTML = "";
@@ -154,7 +154,7 @@ function update_resources()
 	if (presents_mirrored > 0)
 	{
 		document.getElementById("presents_mirrored_count").innerHTML =
-			"Total presents cloned by mirrors: " + thousands(presents_mirrored) + " (" +
+			"通过镜子克隆的礼物总计: " + thousands(presents_mirrored) + " (" +
 			Math.round(presents_mirrored * 100 / num) + "%)<br>";
 	} else {
 		document.getElementById("presents_mirrored_count").innerHTML = "";
@@ -162,7 +162,7 @@ function update_resources()
 	if (upgrades.morale1.ever > 0)
 	{
 		document.getElementById("songs_count").innerHTML =
-			"Songs sung: " + thousands(upgrades.morale1.ever - upgrades.morale1.num) + "<br>";
+			"演唱的歌曲: " + thousands(upgrades.morale1.ever - upgrades.morale1.num) + "<br>";
 	} else {
 		document.getElementById("songs_count").innerHTML = "";
 	}
@@ -259,17 +259,17 @@ function update_play_timer()
 	// hours
 	if (hours > 1)
 	{
-		str += hours + " hours ";
+		str += hours + " 小时 ";
 	} else if (hours == 1) {
-		str += "1 hour ";
+		str += "1 小时 ";
 	}
 
 	// minutes
 	if (mins == 1)
 	{
-		str += "1 minute";
+		str += "1 分钟";
 	} else {
-		str += mins + " minutes";
+		str += mins + " 分钟";
 	}
 	if (play_unknown)
 	{
@@ -392,9 +392,9 @@ function update_buttons()
 	num = toys_click * toys_mult;
 	if (num == 1)
 	{
-		str = "+1 toy";
+		str = "+1 玩具";
 	} else {
-		str = "+" + thousands(num) +" toys";
+		str = "+" + thousands(num) +" 玩具";
 	}
 	document.getElementById("toy_button_text").innerHTML = str;
 
@@ -402,16 +402,16 @@ function update_buttons()
 	num = presents_click * presents_mult;
 	if (num == 1)
 	{
-		str = "1 toy -> ";
+		str = "1 玩具 -> ";
 	} else {
-		str = thousands(num) + " toys -> ";
+		str = thousands(num) + " 玩具 -> ";
 	}
 	num *= mirror_mult;
 	if (num == 1)
 	{
-		str += "1 present";
+		str += "1 礼物";
 	} else {
-		str += thousands(num) + " presents";
+		str += thousands(num) + " 礼物";
 	}
 	document.getElementById("present_button_text").innerHTML = str;
 
@@ -435,7 +435,7 @@ function update_buttons()
 	num = get_make_per_sec();
 	if (num > 0)
 	{
-		str = '(+' + thousands(num) + ' / sec)';
+		str = '(+' + thousands(num) + ' / 秒)';
 	} else {
 		str = '';
 	}
@@ -445,7 +445,7 @@ function update_buttons()
 	num = (get_elf_wrap_per_sec() + get_machine_wrap_per_sec()) * mirror_mult;
 	if (num > 0)
 	{
-		str = '(+' + thousands(num) + ' / sec)';
+		str = '(+' + thousands(num) + ' / 秒)';
 	} else {
 		str = '';
 	}
@@ -455,27 +455,27 @@ function update_buttons()
 	document.getElementById("makers_button_title").innerHTML = elf_makers;
 	if (elf_makers == 1)
 	{
-		document.getElementById("makers_button_text").innerHTML = 'elf';
+		document.getElementById("makers_button_text").innerHTML = '小精灵';
 	} else {
-		document.getElementById("makers_button_text").innerHTML = 'elves';
+		document.getElementById("makers_button_text").innerHTML = '精灵';
 	}
 
 	// assign wrappers
 	document.getElementById("wrappers_button_title").innerHTML = elf_wrappers;
 	if (elf_wrappers == 1)
 	{
-		document.getElementById("wrappers_button_text").innerHTML = 'elf';
+		document.getElementById("wrappers_button_text").innerHTML = '小精灵';
 	} else {
-		document.getElementById("wrappers_button_text").innerHTML = 'elves';
+		document.getElementById("wrappers_button_text").innerHTML = '精灵';
 	}
 
 	// machines display
 	document.getElementById("machines_button_title").innerHTML = upgrades.machine1.num;
 	if (upgrades.machine1.num == 1)
 	{
-		document.getElementById("machines_button_text").innerHTML = 'machine';
+		document.getElementById("machines_button_text").innerHTML = '机器';
 	} else {
-		document.getElementById("machines_button_text").innerHTML = 'machines';
+		document.getElementById("machines_button_text").innerHTML = '机器';
 	}
 
 	// multipliers display
@@ -578,7 +578,7 @@ var upgrades =
 
 	toys1:
 	{
-		title:"Elbow grease",
+		title:"重活",
 		text:"Increase your toy making to 2 toys/click.",
 		icon:"present_r1.png",
 		vis:function() {return (presents_clicked >= 10)},
@@ -614,8 +614,8 @@ var upgrades =
 	},
 	elf:
 	{
-		title:"Hire an elf",
-		text:"Hire an elf to make toys and wrap presents for you.",
+		title:"雇佣一个精灵",
+		text:"雇佣一个精灵为你制造玩具和包装礼物",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents1.num >= 1)},
 		cost:100,
@@ -943,7 +943,7 @@ function init_upgrades()
 
 	// add upgrades to the html
 	str = '<div class="box" id="upg_none">';
-		str += 'No upgrades are available.';
+		str += '无可用升级。';
 	str += '</div>';
 	for (u in upgrades)
 	{
@@ -1027,7 +1027,7 @@ function update_upgrades()
 			{
 				str += ' (' + upgrades[u].num + ' / ' + upgrades[u].max + ')';
 			}
-			str += ' [' + thousands(upgrades[u].cost) + ' presents]';
+			str += ' [' + thousands(upgrades[u].cost) + ' 礼物]';
 			document.getElementById(upgrades[u].title_id).innerHTML = str;
 		} else if (vis && upgrades[u].frequent) {
 			// visible
@@ -1047,7 +1047,7 @@ function update_upgrades()
 			{
 				str += ' (' + upgrades[u].num + ' / ' + upgrades[u].max + ')';
 			}
-			str += ' [wait]';
+			str += ' [等待]';
 			document.getElementById(upgrades[u].title_id).innerHTML = str;
 		} else {
 			// hidden
@@ -1074,7 +1074,7 @@ function update_upgrades()
 	// update upgrade list / stat
 	if (ever_upgrades == 0)
 	{
-		str += 'none<br>';
+		str += '无<br>';
 	}
 	document.getElementById("list_upgrades").innerHTML = str_list;
 	document.getElementById("num_upgrades").innerHTML = ever_upgrades + ' of ' + total_upgrades;
