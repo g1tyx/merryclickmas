@@ -605,8 +605,8 @@ var upgrades =
 	},
 	presents2:
 	{
-		title:"Scissor gliding",
-		text:"Speed your wrapping up to 10 presents/click.",
+		title:"剪刀滑翔",
+		text:"快速包装最多10个礼物/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents1.num >= 1)},
 		cost:50,
@@ -624,8 +624,8 @@ var upgrades =
 	},
 	toys3:
 	{
-		title:"Thor's hammer",
-		text:"Increase your toy making to 10 toys/click.",
+		title:"托尔的锤子",
+		text:"将玩具制作增加到10个玩具/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys2.num >= 1)},
 		cost:500,
@@ -633,8 +633,8 @@ var upgrades =
 	},
 	presents3:
 	{
-		title:"Spray wrap",
-		text:"Speed your wrapping up to 20 presents/click.",
+		title:"喷雾包装",
+		text:"快速包装最多20个礼物/点击。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents2.num >= 1)},
 		cost:500,
@@ -642,8 +642,8 @@ var upgrades =
 	},
 	floor:
 	{
-		title:"2nd floor",
-		text:"Increases your elf limit by 10.",
+		title:"2楼",
+		text:"增加你的精灵上限 10.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 10)},
 		cost:2000,
@@ -652,8 +652,8 @@ var upgrades =
 	},
 	reindeer1:
 	{
-		title:"Reindeer stables",
-		text:"Build some stables to keep reindeer in.",
+		title:"驯鹿马厩",
+		text:"建立一些马厩以保持驯鹿。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 10)},
 		cost:2500,
@@ -661,8 +661,8 @@ var upgrades =
 	},
 	morale2:
 	{
-		title:"Cheesy tunes",
-		text:"Your elves are three times as productive when singing.",
+		title:"俗气的曲调",
+		text:"唱歌的时候，你的精灵的生产力提高了三倍。",
 		icon:"note_r1.png",
 		vis:function() {return (morale_refresh_count >= 3)},
 		cost:2500,
@@ -670,8 +670,8 @@ var upgrades =
 	},
 	toys4:
 	{
-		title:"Sewing machines",
-		text:"Doubles toy production by elves and clicks.",
+		title:"缝纫机",
+		text:"精灵和点击让玩具生产翻倍。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 10)},
 		cost:5000,
@@ -679,8 +679,8 @@ var upgrades =
 	},
 	presents4:
 	{
-		title:"Stricter bosses",
-		text:"Doubles present wrapping by elves and clicks.",
+		title:"更严格的老板",
+		text:"通过加倍精灵和点击本包装。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 10)},
 		cost:5000,
@@ -688,8 +688,8 @@ var upgrades =
 	},
 	toys5:
 	{
-		title:"Assembly line",
-		text:"Increase your toy making multiplier to x3.",
+		title:"流水线",
+		text:"增加你的玩具制作加成倍数X3。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys4.num >= 1)},
 		cost:10000,
@@ -697,8 +697,8 @@ var upgrades =
 	},
 	presents5:
 	{
-		title:"Overtime waivers",
-		text:"Increase your present wrapping multiplier to x3.",
+		title:"加班豁免",
+		text:"将当前的包装倍数增加到 x3.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents4.num >= 1)},
 		cost:10000,
@@ -706,8 +706,8 @@ var upgrades =
 	},
 	toys6:
 	{
-		title:"Injection molding",
-		text:"Increase your toy making multiplier to x4.",
+		title:"注塑成型",
+		text:"增加你的玩具制造倍数 x4.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys5.num >= 1)},
 		cost:20000,
@@ -715,8 +715,8 @@ var upgrades =
 	},
 	presents6:
 	{
-		title:"Shorter breaks",
-		text:"Increase your present wrapping multiplier to x4.",
+		title:"更短的休息时间",
+		text:"将当前的包装倍数增加到 x4.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents5.num >= 1)},
 		cost:20000,
@@ -724,8 +724,8 @@ var upgrades =
 	},
 	reindeer2:
 	{
-		title:"Shinier than shiny",
-		text:"Each decoration increases speed by an additional 2%.",
+		title:"比闪亮的光泽",
+		text:"每个装饰的增加速度附加 2%.",
 		icon:"present_r1.png",
 		vis:function() {return ((upgrades.reindeer1.num >= 1) && (decoration_num >= 1))},
 		cost:20000,
@@ -733,8 +733,8 @@ var upgrades =
 	},
 	morale3:
 	{
-		title:"CD changer",
-		text:"You can queue up to 10 Christmas songs.",
+		title:"CD播放器",
+		text:"您最多可以排队10首圣诞歌曲。",
 		icon:"note_r1.png",
 		vis:function() {return (upgrades.morale1.ever >= 6)},
 		cost:25000,
@@ -742,8 +742,8 @@ var upgrades =
 	},
 	toys7:
 	{
-		title:"Microchip fabrication",
-		text:"Increase your toy making multiplier to x5.",
+		title:"微芯片制造",
+		text:"增加你的玩具制造倍数 x5.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys6.num >= 1)},
 		cost:50000,
@@ -751,8 +751,8 @@ var upgrades =
 	},
 	presents7:
 	{
-		title:"Ninja training",
-		text:"Increase your present wrapping multiplier to x5.",
+		title:"忍者训练",
+		text:"将当前的包装倍数增加到 x5.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents6.num >= 1)},
 		cost:50000,
@@ -760,8 +760,8 @@ var upgrades =
 	},
 	morale4:
 	{
-		title:"MP3 player",
-		text:"You can queue up to 40 Christmas songs.",
+		title:"MP3播放器",
+		text:"您最多可以排队40首圣诞歌曲。",
 		icon:"note_r1.png",
 		vis:function() {return ((upgrades.morale1.ever >= 36) && (upgrades.morale3.num >= 1))},
 		cost:50000,
@@ -769,8 +769,8 @@ var upgrades =
 	},
 	morale5:
 	{
-		title:"Old favourites",
-		text:"Your elves are four times as productive when singing.",
+		title:"老歌",
+		text:"唱歌的时候，你的精灵的生产力提高了4倍。",
 		icon:"note_r1.png",
 		vis:function() {return ((upgrades.morale2.num >= 1) && (morale_refresh_count >= 3))},
 		cost:75000,
@@ -778,8 +778,8 @@ var upgrades =
 	},
 	toys8:
 	{
-		title:"Virtual goods",
-		text:"Increases your toy making multiplier by a further +1.",
+		title:"虚拟商品",
+		text:"使你的玩具进一步增加倍数 +1.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.toys7.num >= 1)},
 		cost:200000,
@@ -788,8 +788,8 @@ var upgrades =
 	},
 	presents8:
 	{
-		title:"Extra arms",
-		text:"Increase your present wrapping multiplier by a further +1.",
+		title:"额外的武器",
+		text:"将当前的包装倍数再增加+1。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.presents7.num >= 1)},
 		cost:200000,
@@ -798,8 +798,8 @@ var upgrades =
 	},
 	outsource2:
 	{
-		title:"Outsourced outsourcing",
-		text:"You can queue up to 5 outsource deliveries.",
+		title:"外包外包",
+		text:"您可以排队多达5个外包交货。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.outsource1.ever >= 3)},
 		cost:500000,
@@ -807,8 +807,8 @@ var upgrades =
 	},
 	machine1:
 	{
-		title:"Automatic wrapping machine",
-		text:'Wraps <span id="machine_mult_upg">1,000</span> presents per second.',
+		title:"自动包装机",
+		text:'包装 <span id="machine_mult_upg">1,000</span> 礼物每秒',
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.elf.num >= 100)},
 		cost:1000000,
@@ -817,8 +817,8 @@ var upgrades =
 	},
 	outsource3:
 	{
-		title:"Air mail",
-		text:"Increases your delivery income by 1,000,000.",
+		title:"航空邮件",
+		text:"增加您的交付收入 1,000,000.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.outsource1.ever >= 3)},
 		cost:2000000,
@@ -826,8 +826,8 @@ var upgrades =
 	},
 	machine2:
 	{
-		title:"Turbo button",
-		text:"Increases machine wrapping by 50%.",
+		title:"涡轮按钮",
+		text:"增加机器包装 50%.",
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.machine1.num >= 5)},
 		cost:4000000,
@@ -835,8 +835,8 @@ var upgrades =
 	},
 	outsource4:
 	{
-		title:"Sleigh delivery",
-		text:"Increases your delivery income by a further 2,000,000.",
+		title:"雪橇送货",
+		text:"进一步提高您的交付收入 2,000,000.",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.outsource3.num >= 1)},
 		cost:6000000,
@@ -844,17 +844,18 @@ var upgrades =
 	},
 	machine3:
 	{
-		title:"Water cooling",
-		text:"Increases machine wrapping by another 50%.",
+		title:"水冷",
+		text:"增加另一个机器包装 50%.",
 		icon:"spanner_r1.png",
+        
 		vis:function() {return (upgrades.machine2.num >= 1)},
 		cost:8000000,
 		carry_out:function() {machine_mult += 500; update_machines_upgrade()}
 	},
 	machine4:
 	{
-		title:"Basement level",
-		text:"Increases your machine limit by 10.",
+		title:"地下一层",
+		text:"增加你的机器上限 10.",
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.machine1.num >= 10)},
 		cost:10000000,
@@ -862,8 +863,8 @@ var upgrades =
 	},
 	machine5:
 	{
-		title:"Artificial intelligence",
-		text:"Increases machine wrapping by another 50%.",
+		title:"人工智能",
+		text:"增加另一个机器包装 50%.",
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.machine3.num >= 1)},
 		cost:12000000,
@@ -871,8 +872,8 @@ var upgrades =
 	},
 	tree1:
 	{
-		title:"Christmas tree",
-		text:"Put up a Christmas tree in the middle of the workshop.",
+		title:"圣诞树",
+		text:"在车间中间放一棵圣诞树。",
 		icon:"tree_r1.png",
 		vis:function() {return (upgrades.elf.num >= 120)},
 		cost:20000000,
@@ -880,8 +881,8 @@ var upgrades =
 	},
 	tree2:
 	{
-		title:"Taller tree",
-		text:"Christmas wishes are twice as good.",
+		title:"更高的树",
+		text:"圣诞祝福是两倍。",
 		icon:"tree_r1.png",
 		vis:function() {return (wish_count >= 1)},
 		cost:50000000,
@@ -889,8 +890,8 @@ var upgrades =
 	},
 	machine6:
 	{
-		title:"Extradimensional machine room",
-		text:"Increases your machine limit by 20.",
+		title:"异次元机房",
+		text:"增加你的机器上限 20.",
 		icon:"spanner_r1.png",
 		vis:function() {return (upgrades.machine1.num >= 20)},
 		cost:50000000,
@@ -898,8 +899,8 @@ var upgrades =
 	},
 	morale6:
 	{
-		title:"Christmas number one",
-		text:"Your elves are eight times as productive when singing.",
+		title:"圣诞节第一",
+		text:"唱歌的时候，你的精灵的生产力提高了8倍。",
 		icon:"note_r1.png",
 		vis:function() {return ((upgrades.elf.num >= 120) && (upgrades.morale5.num >= 1))},
 		cost:100000000,
@@ -907,8 +908,8 @@ var upgrades =
 	},
 	tree3:
 	{
-		title:"Tallest tree",
-		text:"Christmas wishes are five times as good.",
+		title:"最高的树",
+		text:"圣诞祝福是五倍。",
 		icon:"tree_r1.png",
 		vis:function() {return (upgrades.tree2.num >= 1)},
 		cost:250000000,
@@ -916,8 +917,8 @@ var upgrades =
 	},
 	mirrors1:
 	{
-		title:"Magic mirrors",
-		text:"Every toy wrapped produces two presents instead of one.",
+		title:"魔镜",
+		text:"每个玩具包装都会产生两个礼物而不是一个。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.elf.num >= 140)},
 		cost:500000000,
@@ -925,8 +926,8 @@ var upgrades =
 	},
 	mirrors2:
 	{
-		title:"Hall of mirrors",
-		text:"Increases your mirror multiplier to six times.",
+		title:"镜子大厅",
+		text:"将镜像倍增器增加到六倍。",
 		icon:"present_r1.png",
 		vis:function() {return (upgrades.mirrors1.num >= 1)},
 		cost:1000000000,
@@ -1165,7 +1166,7 @@ function update_floor_upgrade(have_num)
 			str += "th"; // 0th, 4th...
 		}
 	}
-	str += " floor";
+	str += " 层";
 	upgrades.floor.title = str;
 }
 
@@ -1445,7 +1446,7 @@ function update_reindeer()
 	time_speed = 100 + (decoration_num * decoration_mult);
 	if (decoration_num == 0)
 	{
-		str = 'none<br>';
+		str = '无<br>';
 	}
 	document.getElementById("list_decorations").innerHTML = str;
 	document.getElementById("time_speed_display").innerHTML = time_speed;
@@ -1672,7 +1673,7 @@ function update_wish()
 	if (wish_count > 0)
 	{
 		document.getElementById("wishes_count").innerHTML =
-			"Wishes made: " + wish_count + "<br>";
+			"许愿: " + wish_count + "<br>";
 	} else {
 		document.getElementById("wishes_count").innerHTML = "";
 	}
@@ -2011,7 +2012,7 @@ function save_to_cookie_manual()
 
 	if (!check_cookie())
 	{
-		alert("Save failed.  Use a save code instead.");
+		alert("保存失败。 请改用保存代码。");
 	}
 }
 
@@ -2075,7 +2076,7 @@ function load_from_code()
 		{
 			save_flag = true;
 		} else {
-			alert("That save code is invalid.");
+			alert("该存档代码无效。");
 		}
 	}
 }
