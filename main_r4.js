@@ -66,7 +66,7 @@ function update_resources()
 	{
 		str = '<span style="color:#FFFF00">*** 恭喜，你拯救了圣诞节! ***</span>';
 	} else if (upgrades.toys1.num >= 1) {
-		str = "为世界上的每个人制作礼物并保存圣诞节！";
+		str = "为世界上的每个人制作礼物并拯救圣诞节！";
 	} else if (presents_clicked >= 10) {
 		str = "购买升级，以便您可以更快地提升进度。";
 	} else if ((toys_clicked >= 10) && (presents_clicked >= 1)) {
