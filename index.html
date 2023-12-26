@@ -1,0 +1,220 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+
+<META HTTP-EQUIV="Content-type" content="text/html;charset=UTF-8">
+<title>圣诞点击 - Merry Clickmas</title>
+<meta name="description" content="Santa needs your help!  Make presents for everyone in the world and save Christmas.">
+<meta name="author" content="Geoffrey White">
+
+<!--
+	Merry Clickmas 1.0.4
+	code, content and graphics Copyright (C) 2013 Geoffrey White
+-->
+
+<LINK REL="stylesheet" type="text/css" href="style_r4.css">
+				
+<script src="main_r4.js"></script>
+
+</head><body onload="init()">
+<script src="zh/core.js"></script>
+	<div id="div_left">
+	</div>
+	<div id="div_header">
+		<br><br>This page requires javascript.
+	</div>
+	<div id="div_resources">
+		<div class="resource_space">
+			<div class="button green_button" onmouseup="toy_click()">
+				<div class="button_title">制造玩具</div>
+				<div class="button_text" id="toy_button_text"></div>
+			</div>
+			<div class="resource_big" id="toy_count"></div>
+			<div class="resource_small" id="toys_sec_count"></div>
+		</div>
+		<div class="resource_space">
+			<div class="button red_button" onmouseup="present_click()">
+				<div class="button_title">包装礼物</div>
+				<div class="button_text" id="present_button_text"></div>
+			</div>
+			<div class="resource_big" id="present_count"></div>
+			<div class="resource_small" id="presents_sec_count"></div>
+		</div>
+	</div>
+	<div id="div_elves">
+		<div class="resource_space">
+			<div class="button green_button" id="makers_button" onmouseup="maker_click()">
+				<div class="button_title" id="makers_button_title"></div>
+				<div class="button_text" id="makers_button_text"></div>
+			</div>
+			<div class="arrow_container">
+				<img src="arrows_r1.png" alt="" width=24 height=42>
+			</div>
+		</div>
+		<div class="resource_space">
+			<div class="button red_button" id="wrappers_button" onmouseup="wrapper_click()">
+				<div class="button_title" id="wrappers_button_title"></div>
+				<div class="button_text" id="wrappers_button_text"></div>
+			</div>
+		</div>
+	</div>
+	<div id="div_machines">
+		<div class="resource_space">
+			<div class="v_margin">
+			</div>
+		</div>
+		<div class="resource_space">
+			<div class="button grey_button">
+				<div class="button_title" id="machines_button_title"></div>
+				<div class="button_text" id="machines_button_text"></div>
+			</div>
+		</div>
+	</div>
+	<div id="div_tabs">
+		<div class="box box_upgrade" id="tab_upgrades" onmouseup="{show_tab('tab_upgrades', 'cont_upgrades')}">
+			<div class="box_title">升级</div>
+		</div>
+		<div class="box box_upgrade" id="tab_reindeer" onmouseup="{show_tab('tab_reindeer', 'cont_reindeer')}">
+			<div class="box_title">驯鹿</div>
+		</div>
+		<div class="box box_upgrade" id="tab_tree" onmouseup="{show_tab('tab_tree', 'cont_tree')}">
+			<div class="box_title">圣诞树</div>
+		</div>
+		<div class="box box_upgrade" id="tab_save" onmouseup="{show_tab('tab_save', 'cont_save')}">
+			<div class="box_title">保存</div>
+		</div>
+		<div class="box box_upgrade" id="tab_achievements" onmouseup="{show_tab('tab_achievements', 'cont_achievements')}">
+			<div class="box_title">成就</div>
+		</div>
+		<div id="div_tab">
+			<div class="no_display" id="cont_upgrades">
+				<div id="all_upgrades"></div>
+			</div>
+			<div class="no_display" id="cont_reindeer">
+				<div class="box">
+					驯鹿希望你装饰他们的马厩。 作为回报，他们将加快圣诞魔术的时间。<br>
+					<br>
+
+					<form onsubmit="return input_reindeer()" autocomplete="false">
+						<div class="b_margin">你装的是什么装饰品？</div>
+						<input type="text" id="input_decoration"/>
+					</form>
+					<br>
+
+					<div class="box_title pink_writing" id="decoration_message">
+						<br>
+					</div>
+					<br>
+
+					<div class="box_title">当前速度: <span id="time_speed_display"></span>%</div>
+					<br>
+	
+					装饰品（每个装饰增加 +<span id="time_add_display"></span>% 速度):
+					<div class="box_list" id="list_decorations"></div>
+					<br>
+				</div>
+			</div>
+			<div class="no_display" id="cont_tree">
+				<div class="box" id="wishtext">
+				</div>
+				<div class="box box_upgrade" class="no_display" id="wish1" onmouseup="{gain_wish(wish1, wish1_param)}">
+					<div class="box_title b_margin_4" id="wish1_title"></div>
+					<div id="wish1_text"></div>
+				</div>
+				<div class="box box_upgrade" class="no_display" id="wish2" onmouseup="{gain_wish(wish2, wish2_param)}">
+					<div class="box_title b_margin_4" id="wish2_title"></div>
+					<div id="wish2_text"></div>
+				</div>
+			</div>
+			<div class="no_display" id="cont_achievements">
+				<div class="box">
+					圣诞老人需要你的帮助。圣诞节到来前制造7.1 billion礼物！<br>
+					<br>
+
+					<div class="box_list">
+						实际游戏时间: <span id="play_time"></span><br>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">生产率</div>
+					<div class="box_list">
+						玩具加成倍数: x<span id="toys_mult"></span><br>
+						包装加成倍数: x<span id="wrap_mult"></span><br>
+						<span id="songs_mult"></span>
+						<span id="outsource_mult"></span>
+						<span id="machine_mult"></span>
+						<span id="mirror_mult"></span>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">统计</div>
+					<div class="box_list">
+						通过点击制作的玩具总数: <span id="toys_clicked_count"></span><br>
+						<span id="toys_elves_count"></span>
+						<span id="toys_outsource_count"></span>
+						通过点击包装的总礼物: <span id="presents_clicked_count"></span><br>
+						<span id="presents_elves_count"></span>
+						<span id="presents_machined_count"></span>
+						<span id="presents_mirrored_count"></span>
+						<span id="songs_count"></span>
+						<span id="wishes_count"></span>
+					</div>
+					<br>
+
+					<div class="box_title b_margin">升级 (<span id="num_upgrades"></span>)</div>
+					<div class="box_list" id="list_upgrades"></div>
+					<br>
+				</div>
+			</div>
+			<div class="no_display" id="cont_save">
+				<div class="box">
+					上次保存: <span id="save_time">无</span><br>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="save_to_cookie_manual()">保存</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="save_to_code()">导出存档</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="load_from_code()">导入存档</div>
+					<br>
+					<div class="box box_upgrade box_upgrade_save" onclick="reset_game_confirm()">重置游戏</div>
+					<br>
+					请注意，游戏会定期自动保存到浏览器Cookie中。 但是，不保证cookie会持续存在，为了安全起见，请在游戏时导出备份存档代码。
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="div_footer">
+		Merry Clickmas 1.0.4 &mdash; Copyright &copy; 2013 Geoffrey White |
+		<a href="http://www.digitalchestnut.com/" target="_blank">Digital Chestnut</a> |
+		<a href="https://twitter.com/GeoffW0" target="_blank">@GeoffW0</a> |
+		<a href="https://www.facebook.com/DigitalChestnut" target="_blank">Facebook</a> |
+		art by <a href="http://randomstuff.org.uk/~laura/" target="_blank">Laura Dawes</a>
+	</div>
+	<div id="div_win">
+		<div class="win_stripe">
+			<div class="red_writing_3">恭喜你！</div>
+			<br>
+			你已经制作了7.1 billion礼物并拯救了圣诞节。<br>
+			<br>
+			<div class="red_writing_4">圣诞点击快乐！</div>
+			<br>
+			<div class="box box_upgrade box_upgrade_win" onclick="dismiss_win()">好的</div>
+		</div>
+	</div>
+<!--客服 开始-->
+<script src="//g8hh.github.io/static/js/jquery.min.js"></script>
+<link rel="stylesheet" href="//g8hh.github.io/static/css/kf.css" type="text/css" media="screen" charset="utf-8">
+<script src="//g8hh.github.io/static/js/kf.js"></script>
+<!-- 客服 结束 -->
+<!--站长统计--> 
+<div style="display: none">
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?028b1b5f659ed138230f4cafd7ad0dfc";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+    </div>
+</body></html>
